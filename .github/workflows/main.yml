@@ -27,12 +27,7 @@ jobs:
         run: curl -o wizcli https://wizcli.app.wiz.io/wizcli && chmod +x wizcli
 
       - name: Set env one
-        run: echo "WIZ_CLIENT_ID=$(echo $IAC_WIZ | cut -d , -f 1)" >> $GITHUB_ENV
-        env:
-          IAC_WIZ: ${{ secrets.IAC_WIZ }}
-
-      - name: Set env two
-        run: echo "WIZ_CLIENT_SECRET=$(echo $IAC_WIZ | cut -d , -f 2)" >> $GITHUB_ENV
+        run: echo "WIZ_CLIENT_ID=$(echo $IAC_WIZ | cut -d , -f 1)" >> $GITHUB_ENV | echo "WIZ_CLIENT_SECRET=$(echo $IAC_WIZ | cut -d , -f 2)" >> $GITHUB_ENV
         env:
           IAC_WIZ: ${{ secrets.IAC_WIZ }}
 
