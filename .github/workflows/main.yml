@@ -29,9 +29,9 @@ jobs:
       - name: Set env one
         run: | 
           echo "WIZ_CLIENT_ID=$(echo $IAC_WIZ | cut -d , -f 1)" >> $GITHUB_ENV
-          echo "WIZ_CLIENT_ID"
+          echo "$WIZ_CLIENT_ID"
           echo "WIZ_CLIENT_SECRET=$(echo $IAC_WIZ | cut -d , -f 2)" >> $GITHUB_ENV
-          echo "WIZ_CLIENT_SECRET"
+          echo "$WIZ_CLIENT_SECRET"
         env:
           IAC_WIZ: ${{ secrets.IAC_WIZ }}
           
